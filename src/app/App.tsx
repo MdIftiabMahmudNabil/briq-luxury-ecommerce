@@ -25,7 +25,8 @@ import brick8 from "../imports/brick_type_8.png";
 import brick8Slide from "../imports/brick_type_8_sliding_image.png";
 import brick9 from "../imports/brick_type_9.png";
 import brick9Slide from "../imports/brick_type_9_sliding_image.png";
-import heroBanner from "../imports/Hero_image_of_page.png";
+import heroVideo from "../imports/hero_video.mp4";
+import heroFallbackImage from "../imports/Hero_image_of_page.png";
 import editorialMercedes from "../imports/card_image_2.png";
 import editorialExchange from "../imports/card_image_3.png";
 import dropFlatlay from "../imports/briiq.png";
@@ -1907,11 +1908,24 @@ export default function App() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.4, ease: "easeOut" }}
         >
-          <ImageWithFallback
-            src={heroBanner}
+          <video
+            src={heroVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster={heroFallbackImage}
+            aria-label="BRIQ hero campaign video"
             alt="BRIQ — Raw material. Refined presence. A limited collection of architectural objects."
             className="block h-auto w-full"
-          />
+          >
+            <img
+              src={heroFallbackImage}
+              alt="BRIQ hero campaign fallback"
+              className="block h-auto w-full"
+            />
+          </video>
 
           <motion.div
             className="absolute inset-x-0 bottom-[clamp(0.75rem,3vw,3.25rem)] z-10 flex flex-col items-center gap-3 px-4 sm:gap-4 sm:px-8"
